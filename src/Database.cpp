@@ -69,7 +69,7 @@ void Database::createModel()
 	Model mdl=mx->getModel();
 	for(Model::iterator it=mdl.begin();it!=mdl.end();it++){
 		Table& t=it->second;
-		std::string query="CREATE TABLE "+t.name+" (";
+		std::string query="CREATE TABLE  IF NOT EXISTS "+t.name+" (";
 		bool needComma=false;
 		for(std::map<std::string,Column>::iterator c=t.columns.begin();c!=t.columns.end();c++){
 			if(needComma)
